@@ -1,0 +1,20 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Component
+metadata:
+  annotations:
+    image.redhat.com/generate: "true"
+    appstudio.openshift.io/pac-provision: request
+    build.appstudio.openshift.io/request: configure-pac
+    build.appstudio.openshift.io/pipeline: '{"name":"docker-build-multi-platform-oci-ta","bundle":"latest"}'
+  name: example-component
+spec:
+  componentName: example-component
+  application: appName
+  source:
+      git:
+        url: gitUrl
+        context: ./
+        dockerfileUrl: ContainerFileLocation
+        revision: defaultBranch
+
+  

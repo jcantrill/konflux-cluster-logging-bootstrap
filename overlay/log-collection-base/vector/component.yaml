@@ -1,0 +1,9 @@
+- op: replace
+  path: /metadata/name
+  value: vector
+- op: replace
+  path: /spec/componentName
+  value: vector
+- op: replace
+  path: /spec/source/git/dockerfileUrl
+  value: Dockerfile.vector

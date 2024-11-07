@@ -1,0 +1,9 @@
+- op: replace
+  path: /metadata/name
+  value: cluster-logging-operator-bundle
+- op: replace
+  path: /spec/componentName
+  value: cluster-logging-operator-bundle
+- op: replace
+  path: /spec/source/git/dockerfileUrl
+  value: Dockerfile.cluster-logging-operator-bundle
