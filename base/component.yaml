@@ -15,6 +15,6 @@ spec:
         url: gitUrl
         context: ./
         dockerfileUrl: ContainerFileLocation
-        revision: defaultBranch
+        revision: main
 
   

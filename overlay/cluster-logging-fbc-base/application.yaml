@@ -1,0 +1,7 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Application
+metadata:
+  name: cluster-logging-fbc
+spec:
+  description: File based operator catalogs for Cluster Logging
+  displayName: Cluster Logging File Based Catalogs

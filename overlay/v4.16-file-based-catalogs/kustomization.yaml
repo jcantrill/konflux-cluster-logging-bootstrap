@@ -1,0 +1,47 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+nameSuffix: -v4-16
+
+resources:
+  - ../cluster-logging-fbc-base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/application
+        value: cluster-logging-catalog-v4-16
+    target: 
+      kind: Component
+  - patch: |-
+      - op: replace
+        path: /spec/componentName
+        value: cluster-logging-fbc-v4-16
+      - op: replace
+        path: /spec/source/git/url
+        value: https://github.com/jcantril/konflux-cluster-logging-catalog
+      - op: replace
+        path: /spec/source/git/context
+        value: v4.16/cluster-logging
+      - op: replace
+        path: /spec/source/git/dockerfileUrl
+        value: v4.16/cluster-logging/Dockerfile
+    target:
+      kind: Component
+      labelSelector: "obs.logging.package=cluster-logging"
+  - patch: |-
+      - op: replace
+        path: /spec/componentName
+        value: loki-operator-fbc-v4-16
+      - op: replace
+        path: /spec/source/git/url
+        value: https://github.com/jcantril/konflux-cluster-logging-catalog
+      - op: replace
+        path: /spec/source/git/context
+        value: v4.16/loki-operator
+      - op: replace
+        path: /spec/source/git/dockerfileUrl
+        value: v4.16/loki-operator/Dockerfile
+    target:
+      kind: Component
+      labelSelector: "obs.logging.package=loki-operator"
