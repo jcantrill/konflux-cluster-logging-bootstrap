@@ -3,6 +3,13 @@ kind: Kustomization
 
 
 resources:
+- ../../base
 - application.yaml
-- cluster-logging
-- loki-operator
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /metadata/name
+        value: cluster-logging-catalog
+    target: 
+      kind: Component
